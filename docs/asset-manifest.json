@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/Modul_4_ReactFlickrApp/static/css/main.e7b6de15.chunk.css",
-    "main.js": "/Modul_4_ReactFlickrApp/static/js/main.ff0901ca.chunk.js",
-    "main.js.map": "/Modul_4_ReactFlickrApp/static/js/main.ff0901ca.chunk.js.map",
+    "main.js": "/Modul_4_ReactFlickrApp/static/js/main.38a3900c.chunk.js",
+    "main.js.map": "/Modul_4_ReactFlickrApp/static/js/main.38a3900c.chunk.js.map",
     "runtime-main.js": "/Modul_4_ReactFlickrApp/static/js/runtime-main.07800ac4.js",
     "runtime-main.js.map": "/Modul_4_ReactFlickrApp/static/js/runtime-main.07800ac4.js.map",
     "static/js/2.5f0caff5.chunk.js": "/Modul_4_ReactFlickrApp/static/js/2.5f0caff5.chunk.js",
@@ -15,6 +15,6 @@
     "static/js/runtime-main.07800ac4.js",
     "static/js/2.5f0caff5.chunk.js",
     "static/css/main.e7b6de15.chunk.css",
-    "static/js/main.ff0901ca.chunk.js"
+    "static/js/main.38a3900c.chunk.js"
   ]
 }

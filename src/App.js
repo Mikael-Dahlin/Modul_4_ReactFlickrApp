@@ -15,6 +15,7 @@ class App extends React.Component {
     showGallery: false,
   }
 
+  // Fetch images from the api with provided search text.
   fetchImages = (searchText) => {
     if(searchText === '') {
       this.setState({ images: [], message: 'You need to search for something...', showMessage: true });
@@ -33,19 +34,23 @@ class App extends React.Component {
     }
   }
 
+  // Adds an image to the gallery array. 
   addToGallery = (url) => {
     const newGallery = [...this.state.gallery, url];
     this.setState({ gallery: newGallery});
   }
 
+  // Removes an image from the gallery array. 
   removeFromGallery = (url) => {
     this.setState({ gallery: this.state.gallery.filter(imgUrl => (imgUrl !== url))})
   }
 
+  // toggles hide/show gallery.
   toggleGallery = () => {
     this.setState({ showGallery: !this.state.showGallery })
   }
 
+  // toggles hide/show message.
   hideMessage = () => {
     this.setState({ showMessage: !this.state.showMessage })
   }

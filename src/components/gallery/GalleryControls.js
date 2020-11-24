@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class GalleryControls extends React.Component{
     galleryControlsStyle = {
@@ -17,6 +18,7 @@ class GalleryControls extends React.Component{
         margin: '0 2px'
     }
 
+    // Switch image left or right with -1 or +1.
     onClick = (e) => {
         if(e.target.className==="gallery-control-left") this.props.switchImage(-1);
         if(e.target.className==="gallery-control-right") this.props.switchImage(1);
@@ -30,6 +32,10 @@ class GalleryControls extends React.Component{
             </div>
         )
     }
+}
+
+GalleryControls.propTypes = {
+    switchImage: PropTypes.func.isRequired
 }
 
 export default GalleryControls;

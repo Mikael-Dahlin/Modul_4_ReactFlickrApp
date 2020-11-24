@@ -1,12 +1,15 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class Header extends React.Component {
     state = {
         searchText: ''
     }
 
+    // Updates the state while there is typing in the search field.
     onChange = (e) => {this.setState({ searchText: e.target.value })}
 
+    // Start searching and fetch images.
     onSubmit = (e) => {
         e.preventDefault();
         this.props.fetchImages(this.state.searchText);
@@ -68,6 +71,11 @@ class Header extends React.Component {
             </header>
         )
     }
+}
+
+Header.propTypes = {
+    fetchImages: PropTypes.func.isRequired,
+    toggleGallery: PropTypes.func.isRequired
 }
 
 export default Header;

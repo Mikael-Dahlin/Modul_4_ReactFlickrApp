@@ -1,6 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class Message extends React.Component{
+    // Checks if message should be displayed.
     displayMessage = () => {
         return {
             justifyContent: 'center',
@@ -26,6 +28,12 @@ class Message extends React.Component{
             </div>
         )
     }
+}
+
+Message.propTypes = {
+    message: PropTypes.string.isRequired, 
+    showMessage: PropTypes.bool.isRequired,
+    hideMessage: PropTypes.func.isRequired
 }
 
 export default Message;

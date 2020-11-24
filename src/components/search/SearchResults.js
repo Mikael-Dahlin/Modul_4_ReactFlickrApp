@@ -1,7 +1,9 @@
 import React from 'react';
 import Image from './Image';
+import PropTypes from 'prop-types';
 
 class SearchResult extends React.Component{
+    // Generate image url from the fetched data.
     getImageUrl = (farmId, serverId, id, secret) => {
         return `https://farm${farmId}.staticflickr.com/${serverId}/${id}_${secret}_m.jpg`;
     }
@@ -37,6 +39,12 @@ class SearchResult extends React.Component{
             </div>
         )
     }
+}
+
+SearchResult.propTypes = {
+    images: PropTypes.array.isRequired, 
+    addToGallery: PropTypes.func.isRequired,
+    removeFromGallery: PropTypes.func.isRequired
 }
 
 export default SearchResult;

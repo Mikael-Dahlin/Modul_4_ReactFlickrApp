@@ -1,16 +1,17 @@
 import React from 'react';
 import GalleryControls from './GalleryControls';
 import GalleryImages from './GalleryImages';
+import PropTypes from 'prop-types';
 
 class Gallery extends React.Component{
     state = {
         index: 0,
     }
-
+    
+    // switch image left/right with (-1/1).
     switchImage = (dir) => {
-        if (!this.props.gallery) return;
         const newIndex = this.state.index + dir;
-        if(newIndex === this.props.gallery.length) {this.setState({ index: 0 })
+        if(newIndex >= this.props.gallery.length) {this.setState({ index: 0 })
         }else if(newIndex < 0) {this.setState({ index: this.props.gallery.length - 1 })
         } else {this.setState({ index: newIndex })}
     }
@@ -45,6 +46,7 @@ class Gallery extends React.Component{
         return style;
     }
 
+    // Checks if click is outside of the gallery content and hides the gallery.
     onClick = (e) => {
         if(e.target.className === 'gallery') {
             this.props.toggleGallery();
@@ -56,11 +58,24 @@ class Gallery extends React.Component{
             <div onClick={this.onClick} className='gallery' style={this.galleryStyle()}>
                 <div className='gallery-content' style={this.galleryContentStyle}>
                     <GalleryControls switchImage={this.switchImage}/>
-                    <GalleryImages gallery={this.props.gallery} index={this.state.index} removeFromGallery={this.props.removeFromGallery} switchImage={this.switchImage}/>
+                    {(this.state.index >= this.props.gallery.length && this.state.index !== 0) && this.setState({ index: 0 })}
+                    <GalleryImages 
+                        gallery={this.props.gallery} 
+                        index={this.state.index} 
+                        removeFromGallery={this.props.removeFromGallery} 
+                        switchImage={this.switchImage}
+                    />
                 </div>
             </div>
         )
     }
+}
+
+Gallery.propTypes = {
+    gallery: PropTypes.array.isRequired, 
+    showGallery: PropTypes.bool.isRequired, 
+    toggleGallery: PropTypes.func.isRequired,
+    removeFromGallery: PropTypes.func.isRequired
 }
 
 export default Gallery;

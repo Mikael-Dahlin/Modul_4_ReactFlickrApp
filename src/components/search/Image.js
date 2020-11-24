@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class Image extends React.Component{
     imageBoxStyle = {
@@ -13,6 +14,7 @@ class Image extends React.Component{
         height: '100%'
     }
 
+    // Add/Remove the selected image from the gallery.
     onClick = (e) => {
         if(e.target.className.includes('selected')){
             e.target.parentElement.style.border = '3px solid grey';
@@ -34,6 +36,14 @@ class Image extends React.Component{
             </div>
         )
     }
+}
+
+Image.propTypes = {
+    key: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    srcUrl: PropTypes.string.isRequired,
+    addToGallery: PropTypes.func.isRequired,
+    removeFromGallery: PropTypes.func.isRequired
 }
 
 export default Image;

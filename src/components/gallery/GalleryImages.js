@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class GalleryImages extends React.Component{
     galleryListStyle = {
@@ -34,10 +35,12 @@ class GalleryImages extends React.Component{
         cursor: 'pointer',
     }
 
+    // Set the selected image as visible.
     shownImage = (index) => {
         return { display: (index===this.props.index) ? 'flex' : 'none'}
     }
 
+    // Removes the image from the gallery and switches to the prev image.
     onClick = (e) => {
         if(this.props.index !== 0) this.props.switchImage(-1);
         this.props.removeFromGallery(e.target.previousSibling.name);
@@ -68,6 +71,13 @@ class GalleryImages extends React.Component{
             </ul>
         )
     }
+}
+
+GalleryImages.propTypes = {
+    index: PropTypes.number.isRequired, 
+    gallery: PropTypes.array.isRequired, 
+    switchImage: PropTypes.func.isRequired,
+    removeFromGallery: PropTypes.func.isRequired
 }
 
 export default GalleryImages;
